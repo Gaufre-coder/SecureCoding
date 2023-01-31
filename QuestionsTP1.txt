@@ -1,0 +1,18 @@
+Question 1: Why should you reset the database before each test case? Give examples of issues you may meet otherwise.
+
+Resetting the database before each test case is important to ensure that each test is isolated and runs independently of any previous test, this will prevent any test from modifying the state of the database and causing subsequent tests to fail or produce unexpected results.
+
+
+Question 2: What kind of error is currently thrown in test case "should raise error if email is missing"? Is it an SQL error (occurring in the database server) or a validation error before the query got executed? What should it be, so it is easy and secure to format an error message to the end user (considering security, message internationalisation, etc.)?
+
+The error currently thrown in test case "should raise error if email is missing" is a validation error before the query got executed. It should be a validation error, it is easy and secure to format an error message to the end user, as it can be handled in the application level and it allows for more flexibility in terms of security and message internationalization.
+
+
+Question 3: why do we need both a database constrain and a validation in typescript for the same check?
+
+Both a database constraint and a validation in TypeScript are needed for the email attribute to ensure data integrity and to provide user-friendly error messages. A database constraint ensures data integrity by preventing duplicate email values at the database level, while a validation in TypeScript allows for user-friendly error messages to be thrown before the SQL query is even executed.
+
+Question 4: how models validations, such as the one you just wrote, can serve the security of your application? Give an example.
+In addition, which database mechanism can be leveraged for security hardening in case a validation fails (ex. while persisting 2 entities in response to the same action)? Clue: the mechanism I am thinking about could also operate on afterUpdate subscriptions.
+
+Model validations can serve the security of an application by ensuring data integrity and consistency. For example, a validation that checks that a user's email is unique can prevent a malicious user from creating multiple accounts with the same email. A database mechanism that can be used for security hardening in case a validation fails is the use of transactions, which can ensure that multiple database operations are either all committed or all rolled back.

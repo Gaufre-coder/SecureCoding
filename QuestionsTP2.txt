@@ -1,0 +1,24 @@
+Question 1: please write a small paper about that naming convention.
+
+This naming convention is really useful to differenciate collections of ressources for exemple clients of a particular client
+
+//
+
+Question 2 : considering they use REST naming convention, what would do POST /web-api/users and POST /web-api/sessions endpoints?
+
+The first operation will update the properties associated with a user. The second do the same with the sessions.
+
+//
+
+Question 4: How does Fastify behave in the following scenarios:
+
+    If no JSON schema is provided for the body, query, or params?
+    If the client submits an unknown property according to the JSON schema?
+    If the client omits a required property according to the JSON schema?
+
+If no JSON schema is provided for the body, query, or params, Fastify will not validate the request and it will pass through to the handler.
+
+If the client submits an unknown property according to the JSON schema, Fastify will not validate the request and it will pass through to the handler.
+
+If the client omits a required property according to the JSON schema, Fastify will return a 400 Bad Request error with a message describing the missing property.
+
